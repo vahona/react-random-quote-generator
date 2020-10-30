@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-function Quote(isquote) {
+export function Quote({isquote}) {
 
   
   useEffect(() => {
-    setIsquote()
+    // setIsquote()
   }, [])
 
   return (
     <div>
-      <Link><button className="author">{isquote.quoteAuthor}</button> </Link>
+      <Link to='/FullQuote'><button className="author">{isquote.quoteAuthor}</button></Link>
     </div>
   )
 }
 
-export default Quote
+
 
  

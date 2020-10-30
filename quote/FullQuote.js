@@ -1,18 +1,31 @@
 import React from 'react'
+import Quote from './Quote'
 
-function FullQuote({isquotes, setIsquotes}) {
+
+// const BASE_URL = ""
+
+
+
+export default function FullQuote() {
     return (
       <div>
-        {isquotes.map((quote) => {
-          return(
-            <div>
-              <h1>{quote.quoteAuthor}</h1>
-              <div>{quote.quoteText}</div>
-          </div>
-          )
-        })}
+       Hey
       </div>
     )
 }
 
-export default FullQuote
+// export default FullQuote
+
+
+// { isquotes, setIsquotes }
+
+// {
+//   isquotes.map((quote) => {
+//     return (
+//       <div>
+//         <h1>{quote.quoteAuthor}</h1>
+//         <div>{quote.quoteText}</div>
+//       </div>
+//     )
+//   })
+// }

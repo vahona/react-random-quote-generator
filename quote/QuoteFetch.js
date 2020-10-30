@@ -19,7 +19,6 @@ const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random"
 
   const someQuote = async () => {
 
-    
     try {
       const response = await fetch(API_URL)
       console.log(response);
@@ -59,8 +58,7 @@ const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random"
         <div >
           <button>Random</button>
           <div>{isquote.quoteText}</div>
-          <button className="author">{isquote.quoteAuthor}</button>
-          {/* <Quote isquote={isquote.quote} /> */}
+          <Quote isquote={isquote} />
         </div>
     </div>
   )
