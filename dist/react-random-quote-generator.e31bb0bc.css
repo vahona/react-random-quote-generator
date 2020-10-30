@@ -1,2 +1,15 @@
+.author:hover {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+   
+}
+
+.author {
+    background-color: transparent;
+    border: none;
+    padding: 1rem;
+    font-weight: 700;
+}
 
 /*# sourceMappingURL=/react-random-quote-generator.e31bb0bc.css.map */
