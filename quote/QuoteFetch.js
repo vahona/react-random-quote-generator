@@ -36,7 +36,7 @@ const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random"
   return (
     <div  className="quote_random">
         <div className="quote_body">
-          <button>Random</button>
+          <button type="reloade">Random</button>
           <div >{isquote.quoteText}</div>
           <Quote key={isquote.id} isquote={isquote} />
         </div>

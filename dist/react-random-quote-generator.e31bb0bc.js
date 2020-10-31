@@ -33995,7 +33995,9 @@ function QuoteFetch() {
     className: "quote_random"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "quote_body"
-  }, /*#__PURE__*/_react.default.createElement("button", null, "Random"), /*#__PURE__*/_react.default.createElement("div", null, isquote.quoteText), /*#__PURE__*/_react.default.createElement(_Quote.Quote, {
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    type: "reloade"
+  }, "Random"), /*#__PURE__*/_react.default.createElement("div", null, isquote.quoteText), /*#__PURE__*/_react.default.createElement(_Quote.Quote, {
     key: isquote.id,
     isquote: isquote
   })));
