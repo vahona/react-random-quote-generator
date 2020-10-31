@@ -54,7 +54,7 @@ p {
   padding: 1rem;
 }
 
-.full_quote, .quote_random {
+/* .full_quote, .quote_random {
     background-color: white;
     border-radius: 10px;
     margin-inline-start: 10%;
@@ -62,6 +62,33 @@ p {
     box-shadow: 2px 2px 20px rosybrown;
     top: 50%;
     position: absolute;
+} */
+
+
+.quote_random::before {
+    content: "";
+    width: 8px;
+    height: calc(100% - 400px);
+    background-color: rgb(255, 204, 0);
+    position: absolute;
+    margin-right: 1rem;
+    left: 5%;
+    top: 50%;
+    
+   
+}
+
+.reloade {
+    top: -10%;
+    right: 0;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    
+}
+
+.reloade:hover {
+    border: none;
 }
 
 .author:hover {
@@ -72,6 +99,11 @@ p {
     margin-block-start: 1rem;
     cursor: pointer;
    
+}
+
+.quote_body {
+    top: 50%;
+    position: absolute;
 }
 
 .author {
