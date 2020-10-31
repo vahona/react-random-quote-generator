@@ -1,7 +1,69 @@
+
+body {
+    font-family: roboto;
+    font-weight: 500;
+    font-size: 36px;
+    margin-inline-start: 5%;
+    margin-inline-end: 10%;
+}
+
+.quote_random {
+   
+   
+}
+
+.back {
+    background-color: rgb(133, 19, 139);
+    color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 10px;
+    font-size: 40px;
+}
+
+.bar::before {
+    content: "";
+    width: 8px;
+    height: 10%;
+    background-color: rgb(255, 204, 0);
+    position: absolute;
+    margin-right: 1rem;
+}
+
+.container {
+    margin: 1rem;
+}
+
+p {
+    
+}
+
+.back_link {
+    text-decoration: none;
+    color: white;
+}
+
+.quote_body {
+  padding: 1rem;
+}
+
+.full_quote, .quote_random {
+    background-color: white;
+    border-radius: 10px;
+    margin-inline-start: 10%;
+    margin-inline-end: 10%;
+    box-shadow: 2px 2px 20px rosybrown;
+}
+
 .author:hover {
     background-color: black;
     color: white;
-    padding: 2rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-block-start: 1rem;
+    cursor: pointer;
    
 }
 

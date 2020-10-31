@@ -5,6 +5,7 @@ import {Quote} from './Quote'
 
 
 
+
 const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random"
 
 
@@ -29,17 +30,15 @@ const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random"
   } 
 
   useEffect(() => {
-    // someQuote()
     singleQuote()
   }, [])
 
   return (
-    <div >
-        <h1>Quotes</h1>
-        <div >
+    <div  className="quote_random">
+        <div className="quote_body">
           <button>Random</button>
-          <div>{isquote.quoteText}</div>
-          <Quote isquote={isquote} />
+          <div >{isquote.quoteText}</div>
+          <Quote key={isquote.id} isquote={isquote} />
         </div>
     </div>
   )

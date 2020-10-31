@@ -33947,7 +33947,7 @@ function Quote({
   (0, _react.useEffect)(() => {// setIsquote()
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/FullQuote"
+    to: `${isquote.quoteAuthor}`
   }, /*#__PURE__*/_react.default.createElement("button", {
     className: "author"
   }, isquote.quoteAuthor)));
@@ -33989,10 +33989,14 @@ function QuoteFetch() {
   };
 
   (0, _react.useEffect)(() => {
-    // someQuote()
     singleQuote();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Quotes"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", null, "Random"), /*#__PURE__*/_react.default.createElement("div", null, isquote.quoteText), /*#__PURE__*/_react.default.createElement(_Quote.Quote, {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "quote_random"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "quote_body"
+  }, /*#__PURE__*/_react.default.createElement("button", null, "Random"), /*#__PURE__*/_react.default.createElement("div", null, isquote.quoteText), /*#__PURE__*/_react.default.createElement(_Quote.Quote, {
+    key: isquote.id,
     isquote: isquote
   })));
 }
@@ -34005,49 +34009,53 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = FullQuote;
+exports.default = Randome;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _Quote = _interopRequireDefault(require("./Quote"));
-
 var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const API_URL = "https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10";
+const BASE_URL = "https://quote-garden.herokuapp.com/api/v2/authors/";
+const URL = "?page=1&limit=10";
 
-function FullQuote() {
-  const [isquotes, setIsquotes] = (0, _react.useState)([]);
+function Randome() {
+  const [isauthore, setAuthore] = (0, _react.useState)([]);
+  const {
+    authorName
+  } = (0, _reactRouterDom.useParams)();
 
-  const someQuote = async () => {
+  const someAthour = async () => {
     try {
-      const response = await fetch(API_URL);
-      console.log(response);
-      const quot = await response.json();
-      console.log(quot);
-      setIsquotes(quot.quotes);
-      console.log(quot);
+      const response = await fetch(BASE_URL + authorName + URL);
+      const author = await response.json();
+      setAuthore(author.quotes);
     } catch (e) {
       console.error(e);
     }
   };
 
   (0, _react.useEffect)(() => {
-    someQuote();
+    someAthour();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, isquotes.map(quote => {
-    return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, quote.quoteAuthor), /*#__PURE__*/_react.default.createElement("div", null, quote.quoteText));
-  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
-  }, " Back to main page "));
-} // export default FullQuote
-// { isquotes, setIsquotes }
-},{"react":"node_modules/react/index.js","./Quote":"quote/Quote.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, " ", isauthore.quoteGenre), isauthore.map(author => {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "container",
+      key: author._id
+    }, /*#__PURE__*/_react.default.createElement("p", {
+      className: "bar"
+    }, author.quoteText));
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "back"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/",
+    className: "back_link"
+  }, "Back to previous page ")));
+}
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34069,7 +34077,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/FullQuote/"
+    path: "/:authorName"
   }, /*#__PURE__*/_react.default.createElement(_FullQuote.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_QuoteFetch.default, null)))));

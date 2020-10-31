@@ -10,7 +10,7 @@ export function Quote({isquote}) {
 
   return (
     <div>
-      <Link to='/FullQuote'><button className="author">{isquote.quoteAuthor}</button></Link>
+      <Link to={`${isquote.quoteAuthor}`}><button className="author">{isquote.quoteAuthor}</button></Link>
     </div>
   )
 }

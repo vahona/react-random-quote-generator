@@ -9,7 +9,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path='/FullQuote/'>
+          <Route path='/:authorName'>
             <FullQuote />
           </Route>
           <Route path='/'>
