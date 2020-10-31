@@ -33970,25 +33970,10 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const API_URL = "https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10";
 const QUOTE_URL = "https://quote-garden.herokuapp.com/api/v2/quotes/random";
 
 function QuoteFetch() {
-  const [isquotes, setIsquotes] = (0, _react.useState)([]);
   const [isquote, setIsquote] = (0, _react.useState)({}); // const [isopen, setIsopen] = useState(false) 
-
-  const someQuote = async () => {
-    try {
-      const response = await fetch(API_URL);
-      console.log(response);
-      const quot = await response.json();
-      console.log(quot);
-      setIsquotes(quot.quotes);
-      console.log(quot);
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   const singleQuote = async () => {
     try {
@@ -34004,7 +33989,7 @@ function QuoteFetch() {
   };
 
   (0, _react.useEffect)(() => {
-    someQuote();
+    // someQuote()
     singleQuote();
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Quotes"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", null, "Random"), /*#__PURE__*/_react.default.createElement("div", null, isquote.quoteText), /*#__PURE__*/_react.default.createElement(_Quote.Quote, {
@@ -34022,28 +34007,47 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = FullQuote;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _Quote = _interopRequireDefault(require("./Quote"));
 
+var _reactRouterDom = require("react-router-dom");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const BASE_URL = ""
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const API_URL = "https://quote-garden.herokuapp.com/api/v2/quotes?page=1&limit=10";
+
 function FullQuote() {
-  return /*#__PURE__*/_react.default.createElement("div", null, "Hey");
+  const [isquotes, setIsquotes] = (0, _react.useState)([]);
+
+  const someQuote = async () => {
+    try {
+      const response = await fetch(API_URL);
+      console.log(response);
+      const quot = await response.json();
+      console.log(quot);
+      setIsquotes(quot.quotes);
+      console.log(quot);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  (0, _react.useEffect)(() => {
+    someQuote();
+  }, []);
+  return /*#__PURE__*/_react.default.createElement("div", null, isquotes.map(quote => {
+    return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, quote.quoteAuthor), /*#__PURE__*/_react.default.createElement("div", null, quote.quoteText));
+  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, " Back to main page "));
 } // export default FullQuote
 // { isquotes, setIsquotes }
-// {
-//   isquotes.map((quote) => {
-//     return (
-//       <div>
-//         <h1>{quote.quoteAuthor}</h1>
-//         <div>{quote.quoteText}</div>
-//       </div>
-//     )
-//   })
-// }
-},{"react":"node_modules/react/index.js","./Quote":"quote/Quote.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Quote":"quote/Quote.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34065,10 +34069,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/"
-  }, /*#__PURE__*/_react.default.createElement(_QuoteFetch.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/FullQuote/"
-  }, /*#__PURE__*/_react.default.createElement(_FullQuote.default, null)))));
+  }, /*#__PURE__*/_react.default.createElement(_FullQuote.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/"
+  }, /*#__PURE__*/_react.default.createElement(_QuoteFetch.default, null)))));
 }
 
 var _default = App;
@@ -34113,7 +34117,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58547" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60620" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

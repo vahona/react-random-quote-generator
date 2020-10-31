@@ -9,12 +9,12 @@ function App() {
     <div>
       <Router>
         <Switch>
+          <Route path='/FullQuote/'>
+            <FullQuote />
+          </Route>
           <Route path='/'>
             <QuoteFetch />
           </Route>
-          <Route path='/FullQuote/'>
-            <FullQuote />
-          </Route> 
         </Switch>
       </Router>
       
