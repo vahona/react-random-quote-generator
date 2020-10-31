@@ -64,6 +64,14 @@ p {
     position: absolute;
 } */
 
+.author {
+    font-size: 20px;
+}
+
+.full_quote {
+    right: 1rem;
+    position: absolute;
+}
 
 .quote_random::before {
     content: "";
@@ -72,8 +80,8 @@ p {
     background-color: rgb(255, 204, 0);
     position: absolute;
     margin-right: 1rem;
-    left: 5%;
-    top: 50%;
+    left: 18%;
+    top: 20%;
     
    
 }
@@ -102,8 +110,10 @@ p {
 }
 
 .quote_body {
-    top: 50%;
+    top: 20%;
     position: absolute;
+    right: 50%;
+    left: 20%;
 }
 
 .author {

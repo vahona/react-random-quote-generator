@@ -34043,7 +34043,9 @@ function Randome() {
   (0, _react.useEffect)(() => {
     someAthour();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, " ", isauthore.quoteGenre), isauthore.map(author => {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "full_quote"
+  }, "Random"), /*#__PURE__*/_react.default.createElement("h2", null, " ", isauthore.quoteGenre), isauthore.map(author => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "container",
       key: author._id
