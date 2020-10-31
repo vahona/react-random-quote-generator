@@ -81,4 +81,24 @@ p {
     font-weight: 700;
 }
 
+@media (min-width: 550px) {
+    p {
+   margin: 1rem; 
+   height: 100px
+}
+
+.bar::before {
+    content: "";
+    width: 8px;
+    height: calc(100% - 600px);
+    background-color: rgb(255, 204, 0);
+    position: absolute;
+    margin-right: 1rem;
+    left: 5%;
+    top: 16;
+    
+   
+}
+}
+
 /*# sourceMappingURL=/react-random-quote-generator.e31bb0bc.css.map */
