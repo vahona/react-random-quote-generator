@@ -34045,7 +34045,7 @@ function Randome() {
   }, []);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     className: "full_quote"
-  }, "Random"), /*#__PURE__*/_react.default.createElement("h2", null, " ", isauthore.quoteGenre), isauthore.map(author => {
+  }, "Random"), /*#__PURE__*/_react.default.createElement("h2", null, " ", authorName), console.log(isauthore), isauthore.map(author => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "container",
       key: author._id
@@ -34129,7 +34129,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60620" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58137" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

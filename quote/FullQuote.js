@@ -32,7 +32,8 @@ export default function Randome() {
   return (
     <div>
       <button className="full_quote">Random</button>
-      <h2> {isauthore.quoteGenre}</h2>
+      <h2> {authorName}</h2>
+      {console.log(isauthore)}
       {isauthore.map((author) =>  {
         return (
           <div className="container"  key={author._id}>
